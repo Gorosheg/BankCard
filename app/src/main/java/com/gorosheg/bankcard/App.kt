@@ -12,6 +12,7 @@ class App : Application() {
         startKoin {
             modules(
                 navigatorModule,
+                bankCardModule
             )
         }
     }
