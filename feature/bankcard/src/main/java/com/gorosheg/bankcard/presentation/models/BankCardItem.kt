@@ -1,17 +1,17 @@
-package com.gorosheg.bankcard.presentation.recycler.models
+package com.gorosheg.bankcard.presentation.models
 
 import androidx.annotation.StringRes
 
-internal sealed interface BankCardItems : ListItem {
+internal sealed interface BankCardItem : ListItem {
 
     class History(
         val scheme: String,
         val cardBin: String,
-    ) : BankCardItems
+    ) : BankCardItem
 
     class Header(
         @StringRes val title: Int,
-    ) : BankCardItems
+    ) : BankCardItem
 
     class Card(
         val scheme: String,
@@ -30,5 +30,5 @@ internal sealed interface BankCardItems : ListItem {
         val bankUrl: String,
         val bankPhone: String,
         val bankCity: String,
-    ) : BankCardItems
+    ) : BankCardItem
 }

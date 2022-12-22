@@ -10,4 +10,7 @@
     <string name="luhn">LUHN</string>
     <string name="country">COUNTRY</string>
     <string name="bank">BANK</string>
+
+    <string name="card">Card</string>
+    <string name="history">History</string>
 </resources>

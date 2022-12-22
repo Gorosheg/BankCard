@@ -1,10 +1,10 @@
 package com.gorosheg.bankcard.presentation.recycler
 
 import com.gorosheg.bankcard.databinding.CardBlockBinding
-import com.gorosheg.bankcard.presentation.recycler.models.BankCardItems
+import com.gorosheg.bankcard.presentation.models.BankCardItem
 
 internal fun cardDelegate() =
-    adapterDelegate<BankCardItems.Card, CardBlockBinding>(CardBlockBinding::inflate) {
+    adapterDelegate<BankCardItem.Card, CardBlockBinding>(CardBlockBinding::inflate) {
         bind {
             schemeNetwork.text = item.scheme
             type.text = item.type
