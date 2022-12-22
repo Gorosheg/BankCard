@@ -14,5 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Bank Card"
 include ':app'
-include ':datasource'
 include ':feature:bankcard'
+include ':common:pure'
+include ':datasource:network'
+include ':datasource:database'
