@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -27,6 +28,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += "-Xcontext-receivers"
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
@@ -38,6 +43,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
 
     // Koin
-    api "io.insert-koin:koin-core:3.2.0"
-    api "io.insert-koin:koin-android:3.2.0"
+    implementation "io.insert-koin:koin-core:3.2.0"
+    implementation "io.insert-koin:koin-android:3.2.0"
+
+    // ViewBinding
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:1.5.6"
+
+    // AdapterDelegate
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2"
 }
