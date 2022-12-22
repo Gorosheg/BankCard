@@ -36,6 +36,11 @@ android {
 }
 
 dependencies {
+
+    implementation project(':datasource:network')
+    implementation project(':datasource:database')
+    implementation project(':common:pure')
+
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation 'androidx.core:core-ktx:1.9.0'
