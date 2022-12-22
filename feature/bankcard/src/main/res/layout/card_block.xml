@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_white_rect_radius_10"
+    android:padding="28dp">
+
+    <TextView
+        android:id="@+id/schemeNetworkHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scheme_network"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/schemeNetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/schemeNetworkHeader"
+        app:layout_constraintTop_toBottomOf="@+id/schemeNetworkHeader"
+        tools:text="Visa" />
+
+    <TextView
+        android:id="@+id/typeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/type"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toEndOf="@+id/schemeNetworkHeader"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/typeHeader"
+        app:layout_constraintTop_toBottomOf="@+id/typeHeader"
+        tools:text="Debit / Credit" />
+
+    <TextView
+        android:id="@+id/prepaidHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/prepaid"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schemeNetwork" />
+
+    <TextView
+        android:id="@+id/prepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/prepaidHeader"
+        app:layout_constraintTop_toBottomOf="@+id/prepaidHeader"
+        tools:text="Yes / No" />
+
+    <TextView
+        android:id="@+id/brandHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/brand"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="@+id/type"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/brandHeader"
+        app:layout_constraintTop_toBottomOf="@+id/brandHeader"
+        tools:text="Debit / Credit" />
+
+
+    <TextView
+        android:id="@+id/cardNumberHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/card_number"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prepaid" />
+
+    <TextView
+        android:id="@+id/lengthHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/length"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="@+id/cardNumberHeader"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberHeader" />
+
+    <TextView
+        android:id="@+id/length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/lengthHeader"
+        app:layout_constraintTop_toBottomOf="@+id/lengthHeader"
+        tools:text="16" />
+
+    <TextView
+        android:id="@+id/luhnHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/luhn"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toEndOf="@+id/lengthHeader"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberHeader" />
+
+    <TextView
+        android:id="@+id/luhn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/luhnHeader"
+        app:layout_constraintTop_toBottomOf="@+id/luhnHeader"
+        tools:text="Yes / No" />
+
+
+    <TextView
+        android:id="@+id/countryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/country"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="@+id/brand"
+        app:layout_constraintTop_toBottomOf="@+id/brand" />
+
+    <TextView
+        android:id="@+id/countryCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/countryHeader"
+        app:layout_constraintTop_toBottomOf="@+id/countryHeader"
+        tools:text="DK" />
+
+    <TextView
+        android:id="@+id/countryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toEndOf="@+id/countryCode"
+        app:layout_constraintTop_toBottomOf="@+id/countryHeader"
+        tools:text="Denmark" />
+
+    <TextView
+        android:id="@+id/countryCoordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="@+id/countryCode"
+        app:layout_constraintTop_toBottomOf="@+id/countryCode"
+        tools:text="(latitude: 56, longitude: 10)" />
+
+    <TextView
+        android:id="@+id/bankHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/bank"
+        android:textColor="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/length" />
+
+    <TextView
+        android:id="@+id/bankName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/bankHeader"
+        app:layout_constraintTop_toBottomOf="@+id/bankHeader"
+        tools:text="Jyske Bank, Hjørring" />
+
+    <TextView
+        android:id="@+id/bankUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/bankName"
+        app:layout_constraintTop_toBottomOf="@+id/bankName"
+        tools:text="www.jyskebank.dk" />
+
+    <TextView
+        android:id="@+id/bankPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="@+id/bankUrl"
+        app:layout_constraintTop_toBottomOf="@+id/bankUrl"
+        tools:text="+4589893300" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
