@@ -22,7 +22,7 @@ internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSou
             scheme = scheme,
             type = type,
             brand = brand,
-            prepaid = isPrepaid,
+            isPrepaid = isPrepaid,
             country = buildCountry(),
             bank = buildBank()
         )

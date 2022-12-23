@@ -5,7 +5,7 @@ class BankCard(
     val scheme: String,
     val type: String,
     val brand: String,
-    val prepaid: Boolean,
+    val isPrepaid: Boolean,
     val country: Country,
     val bank: Bank,
 )
