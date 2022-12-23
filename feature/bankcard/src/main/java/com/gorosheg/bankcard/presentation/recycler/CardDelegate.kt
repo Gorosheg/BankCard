@@ -1,7 +1,7 @@
 package com.gorosheg.bankcard.presentation.recycler
 
 import com.gorosheg.bankcard.databinding.CardBlockBinding
-import com.gorosheg.bankcard.presentation.models.BankCardItem
+import com.gorosheg.bankcard.presentation.model.BankCardItem
 
 internal fun cardDelegate() =
     adapterDelegate<BankCardItem.Card, CardBlockBinding>(CardBlockBinding::inflate) {
@@ -14,8 +14,8 @@ internal fun cardDelegate() =
             luhn.text = item.numberLuhn
             countryCode.text = item.countryCode
             countryName.text = item.countryName
-            countryCoordinates.text = item.countryLatitude + item.countryLongitude //TODO
-            bankName.text = item.bankName + "" + item.bankCity
+            countryCoordinates.text = item.countryCoordinates
+            bankName.text = item.bankNameAndCity
             bankUrl.text = item.bankUrl
             bankPhone.text = item.bankPhone
         }

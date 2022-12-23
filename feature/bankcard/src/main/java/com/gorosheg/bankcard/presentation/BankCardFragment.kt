@@ -7,7 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.gorosheg.bankcard.R
 import com.gorosheg.bankcard.databinding.FragmentBankCardBinding
-import com.gorosheg.bankcard.presentation.models.BankCardViewState
+import com.gorosheg.bankcard.presentation.model.BankCardViewState
 import com.gorosheg.bankcard.presentation.recycler.CommonAdapter
 import com.gorosheg.bankcard.presentation.recycler.cardDelegate
 import com.gorosheg.bankcard.presentation.recycler.headerDelegate

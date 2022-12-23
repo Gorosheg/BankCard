@@ -1,4 +1,4 @@
-package com.gorosheg.bankcard.presentation.models
+package com.gorosheg.bankcard.presentation.model
 
 import androidx.annotation.StringRes
 
@@ -23,12 +23,10 @@ internal sealed interface BankCardItem : ListItem {
 
         val countryCode: String,
         val countryName: String,
-        val countryLatitude: String,
-        val countryLongitude: String,
+        val countryCoordinates: String,
 
-        val bankName: String,
+        val bankNameAndCity: String,
         val bankUrl: String,
         val bankPhone: String,
-        val bankCity: String,
     ) : BankCardItem
 }

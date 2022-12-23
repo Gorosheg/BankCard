@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 @Keep
 class CountryResponse(
-    @SerializedName("emoji")
-    val emoji: String,
+    @SerializedName("alpha2")
+    val code: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("latitude")

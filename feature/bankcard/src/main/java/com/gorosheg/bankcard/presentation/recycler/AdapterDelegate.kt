@@ -3,7 +3,7 @@ package com.gorosheg.bankcard.presentation.recycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.gorosheg.bankcard.presentation.models.ListItem
+import com.gorosheg.bankcard.presentation.model.ListItem
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.AdapterDelegateViewBindingViewHolder
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
