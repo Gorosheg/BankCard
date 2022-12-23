@@ -11,7 +11,6 @@ private const val BASE_URL = "https://lookup.binlist.net/"
 private const val TIME_OUT: Long = 90
 
 val networkModule = module {
-
     single<NetworkDataSource> {
         BankCardDataSource(get())
     }

@@ -14,7 +14,7 @@ class BankCardResponse(
     @SerializedName("brand")
     val brand: String,
     @SerializedName("prepaid")
-    val prepaid: Boolean,
+    val isPrepaid: Boolean,
     @SerializedName("country")
     val country: CountryResponse,
     @SerializedName("bank")

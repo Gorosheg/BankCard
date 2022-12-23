@@ -8,7 +8,7 @@ internal class BankCardRepositoryImpl(
     private val networkDataSource: NetworkDataSource,
 ) : BankCardRepository {
 
-    override suspend fun getCardData(cardBin: Int): BankCard {
+    override suspend fun getCard(cardBin: Int): BankCard {
         return networkDataSource.getCardData(cardBin)
     }
 }

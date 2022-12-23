@@ -18,11 +18,11 @@ internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSou
 
     private fun BankCardResponse.toBankCard(): BankCard {
         return BankCard(
-            cardNumber = CardNumber(cardNumber.length, cardNumber.luhn),
+            cardNumber = CardNumber(cardNumber.length, cardNumber.withLuhnAlgorithm),
             scheme = scheme,
             type = type,
             brand = brand,
-            prepaid = prepaid,
+            prepaid = isPrepaid,
             country = buildCountry(),
             bank = buildBank()
         )

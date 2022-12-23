@@ -4,5 +4,5 @@ import com.gorosheg.android.model.BankCard
 
 internal interface BankCardRepository {
 
-    suspend fun getCardData(cardBin: Int): BankCard
+    suspend fun getCard(cardBin: Int): BankCard
 }

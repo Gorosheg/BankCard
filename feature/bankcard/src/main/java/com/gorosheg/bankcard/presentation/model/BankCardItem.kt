@@ -13,11 +13,11 @@ internal sealed interface BankCardItem : ListItem {
         @StringRes val title: Int,
     ) : BankCardItem
 
-    class Card(
+    class CardUi(
         val scheme: String,
         val type: String,
         val brand: String,
-        val prepaid: String,
+        val isPrepaid: String,
         val numberLength: String,
         val numberLuhn: String,
 

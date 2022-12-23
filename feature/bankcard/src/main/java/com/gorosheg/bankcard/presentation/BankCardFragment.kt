@@ -30,6 +30,11 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         viewModel.state.onEach(::render).launchIn(lifecycleScope)
         bankCardMainRecycler.adapter = adapter
+
+        searchIcon.setOnClickListener {
+            val cardBin = searchBin.text.toString().toInt()
+            viewModel.searchCard(cardBin)
+        }
     }
 
     private fun render(state: BankCardViewState) {

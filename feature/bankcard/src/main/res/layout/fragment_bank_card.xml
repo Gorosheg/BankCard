@@ -12,15 +12,24 @@
         android:layout_height="64dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/background_white_rect_radius_50"
-        android:drawableLeft="@drawable/ic_search"
         android:drawablePadding="16dp"
         android:hint="@string/bin_iin"
         android:inputType="number"
-        android:paddingHorizontal="24dp"
+        android:paddingHorizontal="44dp"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@+id/searchBin"
+        app:layout_constraintStart_toStartOf="@+id/searchBin"
+        app:layout_constraintTop_toTopOf="@+id/searchBin" />
 
     <TextView
         android:id="@+id/enterBinHint"

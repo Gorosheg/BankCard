@@ -8,5 +8,5 @@ class CardNumberResponse(
     @SerializedName("length")
     val length: Int,
     @SerializedName("luhn")
-    val luhn: Boolean,
+    val withLuhnAlgorithm: Boolean,
 )
