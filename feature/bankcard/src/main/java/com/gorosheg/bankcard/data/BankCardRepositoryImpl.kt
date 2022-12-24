@@ -17,11 +17,15 @@ internal class BankCardRepositoryImpl(
             getCardFromDao(cardBin)
         }
 
-        if (card != null && getCardFromDao(cardBin) != null) {
+        if (card != null && getCardFromDao(cardBin) == null) {
             addCardToDao(card, cardBin)
         }
 
         return card
+    }
+
+    override fun getAllRequestedCards(): List<BankCard>? {
+        return databaseDatasource.getAll()
     }
 
     private suspend fun loadCard(cardBin: Int): BankCard {

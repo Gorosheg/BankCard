@@ -14,6 +14,8 @@ interface DatabaseDatasource {
     fun addCard(card: BankCard, cardBin: Int)
 
     fun getCard(cardBin: Int): BankCard?
+
+    fun getAll(): List<BankCard>?
 }
 
 internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDatasource {
@@ -25,6 +27,10 @@ internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDa
     override fun getCard(cardBin: Int): BankCard? {
         val card = cardDao.getByBin(cardBin)
         return card?.toBankCard() ?: return null
+    }
+
+    override fun getAll(): List<BankCard>? {
+        return cardDao.getAll().toBankCardList()
     }
 
     private fun BankCard.toEntity(cardBin: Int): CardEntity {
@@ -51,8 +57,15 @@ internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDa
         )
     }
 
+    private fun List<CardEntity>?.toBankCardList(): List<BankCard>? {
+        return this?.map { cardEntity ->
+            cardEntity.toBankCard()
+        }
+    }
+
     private fun CardEntity.toBankCard(): BankCard {
         return BankCard(
+            cardBin = cardBin.toString(),
             cardNumber = CardNumber(
                 cardNumber.length,
                 cardNumber.withLuhnAlgorithm

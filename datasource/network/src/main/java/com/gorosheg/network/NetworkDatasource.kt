@@ -13,11 +13,12 @@ interface NetworkDataSource {
 internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSource {
 
     override suspend fun getCardData(cardBin: Int): BankCard {
-        return api.getCardData(cardBin.toString()).toBankCard()
+        return api.getCardData(cardBin.toString()).toBankCard(cardBin)
     }
 
-    private fun BankCardResponse.toBankCard(): BankCard {
+    private fun BankCardResponse.toBankCard(cardBin: Int): BankCard {
         return BankCard(
+            cardBin = cardBin.toString(),
             cardNumber = CardNumber(cardNumber.length, cardNumber.withLuhnAlgorithm),
             scheme = scheme,
             type = type,

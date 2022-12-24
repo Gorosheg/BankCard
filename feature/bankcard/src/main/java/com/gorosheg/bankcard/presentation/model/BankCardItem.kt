@@ -5,8 +5,7 @@ import androidx.annotation.StringRes
 internal sealed interface BankCardItem : ListItem {
 
     class History(
-        val scheme: String,
-        val cardBin: String,
+        val cards: List<ShortCard>
     ) : BankCardItem
 
     class Header(
@@ -14,6 +13,8 @@ internal sealed interface BankCardItem : ListItem {
     ) : BankCardItem
 
     class CardUi(
+        val bankBin: String,
+
         val scheme: String,
         val type: String,
         val brand: String,

@@ -1,6 +1,7 @@
 package com.gorosheg.android.model
 
 class BankCard(
+    val cardBin: String,
     val cardNumber: CardNumber,
     val scheme: String,
     val type: String,
