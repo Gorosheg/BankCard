@@ -12,6 +12,6 @@ val bankCardModule = module {
     }
 
     factory<BankCardRepository> {
-        BankCardRepositoryImpl(get())
+        BankCardRepositoryImpl(get(), get())
     }
 }

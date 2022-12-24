@@ -36,16 +36,5 @@ dependencies {
     implementation project(':feature:bankcard')
     implementation project(':datasource:network')
     implementation project(':datasource:database')
-
-    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
-    // Koin
-    api "io.insert-koin:koin-core:3.2.0"
-    api "io.insert-koin:koin-android:3.2.0"
+    implementation project(':common:android')
 }

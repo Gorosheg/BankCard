@@ -2,7 +2,6 @@ package com.gorosheg.bankcard.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gorosheg.android.model.BankCard
 import com.gorosheg.bankcard.domain.BankCardRepository
 import com.gorosheg.bankcard.presentation.model.BankCardItem
 import com.gorosheg.bankcard.presentation.model.BankCardItem.CardUi
@@ -46,23 +45,6 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
     }
 
     private suspend fun loadCard(cardBin: Int): CardUi {
-        return repository.getCard(cardBin).mapToCard()
-    }
-
-    private fun BankCard.mapToCard(): CardUi {
-        return CardUi(
-            scheme = scheme,
-            type = type,
-            brand = brand,
-            isPrepaid = prepaid.toString(),
-            numberLength = cardNumber.length.toString(),
-            numberLuhn = cardNumber.withLuhnAlgorithm.toString(),
-            countryCode = country.emoji,
-            countryName = country.name,
-            countryCoordinates = country.coordinates,
-            bankNameAndCity = bank.nameAndCity,
-            bankUrl = bank.url,
-            bankPhone = bank.phone,
-        )
+        return repository.getCard(cardBin).mapToUiCard()
     }
 }

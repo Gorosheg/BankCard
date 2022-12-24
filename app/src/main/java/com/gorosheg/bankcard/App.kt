@@ -4,6 +4,7 @@ import android.app.Application
 import com.gorosheg.bankcard.navigation.navigatorModule
 import com.gorosheg.database.databaseModule
 import com.gorosheg.network.networkModule
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 class App : Application() {
@@ -12,6 +13,7 @@ class App : Application() {
         super.onCreate()
 
         startKoin {
+            androidContext(this@App)
             modules(
                 navigatorModule,
                 bankCardModule,

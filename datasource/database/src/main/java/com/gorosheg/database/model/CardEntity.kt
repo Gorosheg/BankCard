@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey
 internal class CardEntity(
     @PrimaryKey
     val cardBin: Int,
+    @Embedded
     val cardNumber: CardNumberEntity,
     val scheme: String,
     val type: String,
