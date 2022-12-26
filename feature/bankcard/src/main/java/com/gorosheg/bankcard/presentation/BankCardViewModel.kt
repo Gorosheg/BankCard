@@ -19,14 +19,14 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
     val state = MutableStateFlow(BankCardViewState())
 
     init {
-        setState(45717360)
+        setState("")
     }
 
-    fun searchCard(cardBin: Int) {
+    fun searchCard(cardBin: String) {
         setState(cardBin)
     }
 
-    private fun setState(cardBin: Int) {
+    private fun setState(cardBin: String) {
         viewModelScope.launch {
             try {
                 val adapterItems = buildState(cardBin)
@@ -38,7 +38,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
         }
     }
 
-    private suspend fun buildState(cardBin: Int): List<BankCardItem> {
+    private suspend fun buildState(cardBin: String): List<BankCardItem> {
         return listOf(
             buildHeader(Header.CARD),
             loadCard(cardBin),
@@ -47,7 +47,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
         )
     }
 
-    private suspend fun loadCard(cardBin: Int): CardUi {
+    private suspend fun loadCard(cardBin: String): CardUi {
         return repository.getCard(cardBin).mapToUiCard()
     }
 

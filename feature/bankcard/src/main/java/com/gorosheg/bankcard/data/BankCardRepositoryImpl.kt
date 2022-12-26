@@ -10,7 +10,7 @@ internal class BankCardRepositoryImpl(
     private val databaseDatasource: DatabaseDatasource,
 ) : BankCardRepository {
 
-    override suspend fun getCard(cardBin: Int): BankCard? {
+    override suspend fun getCard(cardBin: String): BankCard? {
         return try {
             loadCard(cardBin).also { card ->
                 addCardToDao(card, cardBin)
@@ -24,15 +24,15 @@ internal class BankCardRepositoryImpl(
         return databaseDatasource.getAll()
     }
 
-    private suspend fun loadCard(cardBin: Int): BankCard {
+    private suspend fun loadCard(cardBin: String): BankCard {
         return networkDatasource.getCardData(cardBin)
     }
 
-    private fun addCardToDao(card: BankCard, cardBin: Int) {
+    private fun addCardToDao(card: BankCard, cardBin: String) {
         return databaseDatasource.addCard(card, cardBin)
     }
 
-    private fun getCardFromDao(cardBin: Int): BankCard? {
+    private fun getCardFromDao(cardBin: String): BankCard? {
         return databaseDatasource.getCard(cardBin)
     }
 }

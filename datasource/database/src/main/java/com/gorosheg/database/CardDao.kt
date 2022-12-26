@@ -12,7 +12,7 @@ internal interface CardDao {
     fun insert(card: CardEntity)
 
     @Query("SELECT * FROM CardEntity WHERE cardBin =:cardBin")
-    fun getByBin(cardBin: Int): CardEntity?
+    fun getByBin(cardBin: String): CardEntity?
 
     @Query("SELECT * FROM CardEntity")
     fun getAll(): List<CardEntity>

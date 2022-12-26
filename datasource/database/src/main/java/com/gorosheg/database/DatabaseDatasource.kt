@@ -11,20 +11,20 @@ import com.gorosheg.pure.Country
 
 interface DatabaseDatasource {
 
-    fun addCard(card: BankCard, cardBin: Int)
+    fun addCard(card: BankCard, cardBin: String)
 
-    fun getCard(cardBin: Int): BankCard?
+    fun getCard(cardBin: String): BankCard?
 
     fun getAll(): List<BankCard>
 }
 
 internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDatasource {
 
-    override fun addCard(card: BankCard, cardBin: Int) {
+    override fun addCard(card: BankCard, cardBin: String) {
         cardDao.insert(card.toEntity(cardBin))
     }
 
-    override fun getCard(cardBin: Int): BankCard? {
+    override fun getCard(cardBin: String): BankCard? {
         val card = cardDao.getByBin(cardBin)
         return card?.toBankCard() ?: return null
     }
@@ -33,7 +33,7 @@ internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDa
         return cardDao.getAll().toBankCardList()
     }
 
-    private fun BankCard.toEntity(cardBin: Int) = CardEntity(
+    private fun BankCard.toEntity(cardBin: String) = CardEntity(
         cardBin = cardBin,
         cardNumber = CardNumberEntity(
             cardNumber.length,
@@ -63,7 +63,7 @@ internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDa
     }
 
     private fun CardEntity.toBankCard() = BankCard(
-        cardBin = cardBin.toString(),
+        cardBin = cardBin,
         cardNumber = CardNumber(
             cardNumber.length,
             cardNumber.withLuhnAlgorithm

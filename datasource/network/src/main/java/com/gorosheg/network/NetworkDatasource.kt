@@ -7,18 +7,18 @@ import com.gorosheg.pure.CardNumber
 import com.gorosheg.pure.Country
 
 interface NetworkDataSource {
-    suspend fun getCardData(cardBin: Int): BankCard
+    suspend fun getCardData(cardBin: String): BankCard
 }
 
 internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSource {
 
-    override suspend fun getCardData(cardBin: Int): BankCard {
-        return api.getCardData(cardBin.toString()).toBankCard(cardBin)
+    override suspend fun getCardData(cardBin: String): BankCard {
+        return api.getCardData(cardBin).toBankCard(cardBin)
     }
 
-    private fun BankCardResponse.toBankCard(cardBin: Int): BankCard {
+    private fun BankCardResponse.toBankCard(cardBin: String): BankCard {
         return BankCard(
-            cardBin = cardBin.toString(),
+            cardBin = cardBin,
             cardNumber = CardNumber(number.length, number.withLuhnAlgorithm),
             scheme = scheme,
             type = type,

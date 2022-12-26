@@ -38,7 +38,7 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
         bankCardMainRecycler.adapter = adapter
 
         searchIcon.setOnClickListener {
-            val cardBin = searchBin.text.toString().toInt()
+            val cardBin = searchBin.text.toString()
             viewModel.searchCard(cardBin)
         }
     }
