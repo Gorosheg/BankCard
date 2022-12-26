@@ -19,7 +19,7 @@ internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSou
     private fun BankCardResponse.toBankCard(cardBin: Int): BankCard {
         return BankCard(
             cardBin = cardBin.toString(),
-            cardNumber = CardNumber(cardNumber.length, cardNumber.withLuhnAlgorithm),
+            cardNumber = CardNumber(number.length, number.withLuhnAlgorithm),
             scheme = scheme,
             type = type,
             brand = brand,

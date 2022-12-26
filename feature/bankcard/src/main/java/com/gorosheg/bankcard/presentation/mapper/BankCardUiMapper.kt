@@ -1,4 +1,4 @@
-package com.gorosheg.bankcard.presentation
+package com.gorosheg.bankcard.presentation.mapper
 
 import com.gorosheg.bankcard.presentation.model.BankCardItem.CardUi
 import com.gorosheg.bankcard.presentation.model.BankCardItem.History

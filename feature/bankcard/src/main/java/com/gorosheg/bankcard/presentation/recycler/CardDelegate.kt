@@ -1,5 +1,6 @@
 package com.gorosheg.bankcard.presentation.recycler
 
+import com.gorosheg.android.model.recycler.adapterDelegate
 import com.gorosheg.bankcard.databinding.CardBlockBinding
 import com.gorosheg.bankcard.presentation.model.BankCardItem
 
@@ -8,9 +9,6 @@ internal fun cardDelegate(
     onBankPhoneClick: (phone: String) -> Unit,
     onBankAddressClick: (latitude: String, longitude: String) -> Unit,
 ) = adapterDelegate<BankCardItem.CardUi, CardBlockBinding>(CardBlockBinding::inflate) {
-    bankUrl.setOnClickListener { onBankUrlClick.invoke(bankUrl.text.toString()) }
-    bankPhone.setOnClickListener { onBankPhoneClick.invoke(bankPhone.text.toString()) }
-    countryCoordinates.setOnClickListener { onBankAddressClick.invoke(item.latitude, item.longitude) }
 
     bind {
         schemeNetwork.text = item.scheme
@@ -28,4 +26,8 @@ internal fun cardDelegate(
         bankUrl.text = item.bankUrl
         bankPhone.text = item.bankPhone
     }
+
+    bankUrl.setOnClickListener { onBankUrlClick.invoke(bankUrl.text.toString()) }
+    bankPhone.setOnClickListener { onBankPhoneClick.invoke(bankPhone.text.toString()) }
+    countryCoordinates.setOnClickListener { onBankAddressClick.invoke(item.latitude, item.longitude) }
 }

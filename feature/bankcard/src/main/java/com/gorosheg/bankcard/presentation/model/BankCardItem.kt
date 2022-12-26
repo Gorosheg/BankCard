@@ -1,6 +1,7 @@
 package com.gorosheg.bankcard.presentation.model
 
 import androidx.annotation.StringRes
+import com.gorosheg.pure.ListItem
 
 internal sealed interface BankCardItem : ListItem {
 

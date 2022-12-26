@@ -1,9 +1,9 @@
-package com.gorosheg.bankcard.presentation.recycler
+package com.gorosheg.android.model.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.gorosheg.bankcard.presentation.model.ListItem
+import com.gorosheg.pure.ListItem
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.AdapterDelegateViewBindingViewHolder
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding

@@ -1,5 +1,7 @@
 package com.gorosheg.bankcard.presentation.recycler
 
+import com.gorosheg.android.model.recycler.adapter
+import com.gorosheg.android.model.recycler.adapterDelegate
 import com.gorosheg.bankcard.databinding.HistoryBlockBinding
 import com.gorosheg.bankcard.databinding.ListOfHistoryBinding
 import com.gorosheg.bankcard.presentation.model.BankCardItem.History
@@ -17,6 +19,7 @@ internal fun historyDelegate() =
     }
 
 internal fun historyBlockAdapter() = adapter<ShortCard, HistoryBlockBinding>(HistoryBlockBinding::inflate) {
+
     bind {
         scheme.text = item.scheme
         cardBin.text = item.cardBin

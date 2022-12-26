@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 class BankCardResponse(
     @SerializedName("number")
-    val cardNumber: CardNumberResponse,
+    val number: numberResponse,
     @SerializedName("scheme")
     val scheme: String,
     @SerializedName("type")

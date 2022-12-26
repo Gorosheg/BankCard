@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-class CardNumberResponse(
+class numberResponse(
     @SerializedName("length")
     val length: Int,
     @SerializedName("luhn")

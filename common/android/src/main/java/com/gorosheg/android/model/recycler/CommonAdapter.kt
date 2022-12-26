@@ -1,6 +1,6 @@
-package com.gorosheg.bankcard.presentation.recycler
+package com.gorosheg.android.model.recycler
 
-import com.gorosheg.bankcard.presentation.model.ListItem
+import com.gorosheg.pure.ListItem
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter

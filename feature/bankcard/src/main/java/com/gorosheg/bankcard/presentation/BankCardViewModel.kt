@@ -3,10 +3,12 @@ package com.gorosheg.bankcard.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gorosheg.bankcard.domain.BankCardRepository
+import com.gorosheg.bankcard.presentation.mapper.buildHeader
+import com.gorosheg.bankcard.presentation.mapper.mapToUiCard
+import com.gorosheg.bankcard.presentation.mapper.mapToUiHistory
 import com.gorosheg.bankcard.presentation.model.BankCardItem
 import com.gorosheg.bankcard.presentation.model.BankCardItem.CardUi
 import com.gorosheg.bankcard.presentation.model.BankCardViewState
-import com.gorosheg.bankcard.presentation.recycler.buildHeader
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

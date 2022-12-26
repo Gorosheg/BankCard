@@ -28,11 +28,11 @@ internal class BankCardRepositoryImpl(
         return networkDatasource.getCardData(cardBin)
     }
 
-    private fun getCardFromDao(cardBin: Int): BankCard? {
-        return databaseDatasource.getCard(cardBin)
-    }
-
     private fun addCardToDao(card: BankCard, cardBin: Int) {
         return databaseDatasource.addCard(card, cardBin)
+    }
+
+    private fun getCardFromDao(cardBin: Int): BankCard? {
+        return databaseDatasource.getCard(cardBin)
     }
 }
