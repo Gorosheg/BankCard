@@ -1,3 +1,6 @@
 package com.gorosheg.bankcard.presentation.model
 
-internal class BankCardViewState(val items: List<BankCardItem> = emptyList())
+internal class BankCardViewState(
+    val items: List<BankCardItem> = emptyList(),
+    val isCardEmpty: Boolean = true,
+)

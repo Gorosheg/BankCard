@@ -2,6 +2,7 @@ package com.gorosheg.bankcard.presentation
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -39,13 +40,24 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
 
         searchIcon.setOnClickListener {
             val cardBin = searchBin.text.toString()
-            viewModel.searchCard(cardBin)
+
+            if (cardBin.isEmpty()) {
+                enterBinHint.isVisible = true
+                enterBinHint.text = getString(R.string.enter_bin_hint)
+            } else {
+                viewModel.searchCard(cardBin)
+            }
         }
     }
 
-    private fun render(state: BankCardViewState) {
+    private fun render(state: BankCardViewState) = with(binding) {
         adapter.items = state.items
         adapter.notifyDataSetChanged()
+        if (state.isCardEmpty) {
+            enterBinHint.text = getString(R.string.enter_bin_hint_not_found)
+        } else {
+            enterBinHint.isVisible = false
+        }
     }
 
     companion object {
