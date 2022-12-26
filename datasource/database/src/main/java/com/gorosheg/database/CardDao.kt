@@ -15,5 +15,5 @@ internal interface CardDao {
     fun getByBin(cardBin: Int): CardEntity?
 
     @Query("SELECT * FROM CardEntity")
-    fun getAll(): List<CardEntity>?
+    fun getAll(): List<CardEntity>
 }

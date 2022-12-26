@@ -24,7 +24,7 @@ internal class BankCardRepositoryImpl(
         return card
     }
 
-    override fun getAllRequestedCards(): List<BankCard>? {
+    override fun getAllRequestedCards(): List<BankCard> {
         return databaseDatasource.getAll()
     }
 

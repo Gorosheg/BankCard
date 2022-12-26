@@ -6,5 +6,5 @@ internal interface BankCardRepository {
 
     suspend fun getCard(cardBin: Int): BankCard?
 
-    fun getAllRequestedCards(): List<BankCard>?
+    fun getAllRequestedCards(): List<BankCard>
 }

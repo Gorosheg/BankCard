@@ -4,8 +4,10 @@ import com.gorosheg.database.model.BankEntity
 import com.gorosheg.database.model.CardEntity
 import com.gorosheg.database.model.CardNumberEntity
 import com.gorosheg.database.model.CountryEntity
+import com.gorosheg.pure.Bank
 import com.gorosheg.pure.BankCard
 import com.gorosheg.pure.CardNumber
+import com.gorosheg.pure.Country
 
 interface DatabaseDatasource {
 
@@ -13,7 +15,7 @@ interface DatabaseDatasource {
 
     fun getCard(cardBin: Int): BankCard?
 
-    fun getAll(): List<BankCard>?
+    fun getAll(): List<BankCard>
 }
 
 internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDatasource {
@@ -27,61 +29,59 @@ internal class DatabaseDatasourceImpl(private val cardDao: CardDao) : DatabaseDa
         return card?.toBankCard() ?: return null
     }
 
-    override fun getAll(): List<BankCard>? {
+    override fun getAll(): List<BankCard> {
         return cardDao.getAll().toBankCardList()
     }
 
-    private fun BankCard.toEntity(cardBin: Int): CardEntity {
-        return CardEntity(
-            cardBin = cardBin,
-            cardNumber = CardNumberEntity(
-                cardNumber.length,
-                cardNumber.withLuhnAlgorithm
-            ),
-            scheme = scheme,
-            type = type,
-            brand = brand,
-            isPrepaid = isPrepaid,
-            country = CountryEntity(
-                country.name,
-                country.code,
-                country.coordinates
-            ),
-            bank = BankEntity(
-                nameAndCity = bank.nameAndCity,
-                phone = bank.phone,
-                url = bank.url
-            )
+    private fun BankCard.toEntity(cardBin: Int) = CardEntity(
+        cardBin = cardBin,
+        cardNumber = CardNumberEntity(
+            cardNumber.length,
+            cardNumber.withLuhnAlgorithm
+        ),
+        scheme = scheme,
+        type = type,
+        brand = brand,
+        isPrepaid = isPrepaid,
+        country = CountryEntity(
+            country.name,
+            country.code,
+            country.latitude,
+            country.longitude
+        ),
+        bank = BankEntity(
+            nameAndCity = bank.nameAndCity,
+            phone = bank.phone,
+            url = bank.url
         )
-    }
+    )
 
-    private fun List<CardEntity>?.toBankCardList(): List<BankCard>? {
-        return this?.map { cardEntity ->
+    private fun List<CardEntity>.toBankCardList(): List<BankCard> {
+        return map { cardEntity ->
             cardEntity.toBankCard()
         }
     }
 
-    private fun CardEntity.toBankCard(): BankCard {
-        return BankCard(
-            cardBin = cardBin.toString(),
-            cardNumber = CardNumber(
-                cardNumber.length,
-                cardNumber.withLuhnAlgorithm
-            ),
-            scheme = scheme,
-            type = type,
-            brand = brand,
-            isPrepaid = isPrepaid,
-            country = Country(
-                country.name,
-                country.code,
-                country.coordinates
-            ),
-            bank = Bank(
-                nameAndCity = bank.nameAndCity,
-                phone = bank.phone,
-                url = bank.url
-            )
+    private fun CardEntity.toBankCard() = BankCard(
+        cardBin = cardBin.toString(),
+        cardNumber = CardNumber(
+            cardNumber.length,
+            cardNumber.withLuhnAlgorithm
+        ),
+        scheme = scheme,
+        type = type,
+        brand = brand,
+        isPrepaid = isPrepaid,
+        country = Country(
+            country.name,
+            country.code,
+            country.latitude,
+            country.longitude
+        ),
+        bank = Bank(
+            nameAndCity = bank.nameAndCity,
+            phone = bank.phone,
+            url = bank.url
         )
-    }
+    )
 }
