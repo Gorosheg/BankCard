@@ -21,15 +21,17 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
     private val viewModel: BankCardViewModel by viewModel()
     private val binding: FragmentBankCardBinding by viewBinding()
 
-    private val adapter = CommonAdapter(
-        headerDelegate(),
-        historyDelegate(),
-        cardDelegate(
-            onBankUrlClick = requireActivity()::onBankUrlClicked,
-            onBankPhoneClick = requireActivity()::onBankPhoneClicked,
-            onBankAddressClick = requireActivity()::onBankCoordinatesClicked
+    private val adapter by lazy {
+        CommonAdapter(
+            headerDelegate(),
+            historyDelegate(),
+            cardDelegate(
+                onBankUrlClick = requireActivity()::onBankUrlClicked,
+                onBankPhoneClick = requireActivity()::onBankPhoneClicked,
+                onBankAddressClick = requireActivity()::onBankCoordinatesClicked
+            )
         )
-    )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         viewModel.state.onEach(::render).launchIn(lifecycleScope)
