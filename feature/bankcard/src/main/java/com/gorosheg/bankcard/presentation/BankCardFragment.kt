@@ -24,7 +24,11 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
     private val adapter = CommonAdapter(
         headerDelegate(),
         historyDelegate(),
-        cardDelegate()
+        cardDelegate(
+            onBankUrlClick = requireActivity()::onBankUrlClicked,
+            onBankPhoneClick = requireActivity()::onBankPhoneClicked,
+            onBankAddressClick = requireActivity()::onBankCoordinatesClicked
+        )
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {

@@ -1,13 +1,11 @@
 package com.gorosheg.database
 
-import com.gorosheg.android.model.Bank
-import com.gorosheg.android.model.BankCard
-import com.gorosheg.android.model.CardNumber
-import com.gorosheg.android.model.Country
 import com.gorosheg.database.model.BankEntity
 import com.gorosheg.database.model.CardEntity
 import com.gorosheg.database.model.CardNumberEntity
 import com.gorosheg.database.model.CountryEntity
+import com.gorosheg.pure.BankCard
+import com.gorosheg.pure.CardNumber
 
 interface DatabaseDatasource {
 

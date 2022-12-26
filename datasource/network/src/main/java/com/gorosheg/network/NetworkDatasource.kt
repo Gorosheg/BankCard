@@ -30,9 +30,10 @@ internal class BankCardDataSource(private val api: BankCardApi) : NetworkDataSou
     }
 
     private fun BankCardResponse.buildCountry() = Country(
-        country.name,
-        country.code,
-        "(latitude: ${country.latitude}, longitude: ${country.longitude})"
+        name = country.name,
+        code = country.code,
+        latitude = country.latitude.toString(),
+        longitude = country.longitude.toString()
     )
 
     private fun BankCardResponse.buildBank() = Bank(

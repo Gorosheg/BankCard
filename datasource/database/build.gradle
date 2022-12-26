@@ -33,6 +33,7 @@ android {
 
 dependencies {
 
+    implementation project(':common:pure')
     implementation project(':common:android')
 
     // room

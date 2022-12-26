@@ -1,9 +1,9 @@
 package com.gorosheg.bankcard.data
 
-import com.gorosheg.android.model.BankCard
 import com.gorosheg.bankcard.domain.BankCardRepository
 import com.gorosheg.database.DatabaseDatasource
 import com.gorosheg.network.NetworkDataSource
+import com.gorosheg.pure.BankCard
 
 internal class BankCardRepositoryImpl(
     private val networkDatasource: NetworkDataSource,
