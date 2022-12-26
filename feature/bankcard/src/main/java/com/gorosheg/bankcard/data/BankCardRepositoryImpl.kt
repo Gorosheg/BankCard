@@ -11,17 +11,13 @@ internal class BankCardRepositoryImpl(
 ) : BankCardRepository {
 
     override suspend fun getCard(cardBin: Int): BankCard? {
-        val card = try {
-            loadCard(cardBin)
+        return try {
+            loadCard(cardBin).also { card ->
+                addCardToDao(card, cardBin)
+            }
         } catch (e: Exception) {
             getCardFromDao(cardBin)
         }
-
-        if (card != null) {
-            addCardToDao(card, cardBin)
-        }
-
-        return card
     }
 
     override fun getAllRequestedCards(): List<BankCard> {

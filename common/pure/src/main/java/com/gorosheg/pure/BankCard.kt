@@ -1,4 +1,4 @@
-package com.gorosheg.android.model
+package com.gorosheg.pure
 
 class BankCard(
     val cardBin: String,

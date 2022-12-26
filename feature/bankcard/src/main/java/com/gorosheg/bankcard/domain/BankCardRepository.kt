@@ -1,6 +1,6 @@
 package com.gorosheg.bankcard.domain
 
-import com.gorosheg.android.model.BankCard
+import com.gorosheg.pure.BankCard
 
 internal interface BankCardRepository {
 

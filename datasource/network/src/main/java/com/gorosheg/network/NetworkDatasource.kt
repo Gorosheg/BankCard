@@ -1,10 +1,10 @@
 package com.gorosheg.network
 
-import com.gorosheg.android.model.Bank
-import com.gorosheg.android.model.BankCard
-import com.gorosheg.android.model.CardNumber
-import com.gorosheg.android.model.Country
 import com.gorosheg.network.model.BankCardResponse
+import com.gorosheg.pure.Bank
+import com.gorosheg.pure.BankCard
+import com.gorosheg.pure.CardNumber
+import com.gorosheg.pure.Country
 
 interface NetworkDataSource {
     suspend fun getCardData(cardBin: Int): BankCard
