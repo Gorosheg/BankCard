@@ -9,6 +9,7 @@ import com.gorosheg.bankcard.presentation.mapper.mapToUiHistory
 import com.gorosheg.bankcard.presentation.model.BankCardItem
 import com.gorosheg.bankcard.presentation.model.BankCardItem.CardUi
 import com.gorosheg.bankcard.presentation.model.BankCardViewState
+import com.gorosheg.bankcard.presentation.model.Header
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

@@ -1,5 +1,6 @@
 package com.gorosheg.bankcard.presentation.recycler
 
+import android.graphics.Paint
 import com.gorosheg.android.model.recycler.adapterDelegate
 import com.gorosheg.bankcard.databinding.CardBlockBinding
 import com.gorosheg.bankcard.presentation.model.BankCardItem
@@ -25,6 +26,9 @@ internal fun cardDelegate(
         bankName.text = item.bankNameAndCity
         bankUrl.text = item.bankUrl
         bankPhone.text = item.bankPhone
+
+        bankPhone.paintFlags = bankPhone.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        countryCoordinates.paintFlags = bankPhone.paintFlags or Paint.UNDERLINE_TEXT_FLAG
     }
 
     bankUrl.setOnClickListener { onBankUrlClick.invoke(bankUrl.text.toString()) }

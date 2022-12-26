@@ -1,4 +1,4 @@
-package com.gorosheg.bankcard.presentation
+package com.gorosheg.bankcard.presentation.model
 
 import androidx.annotation.StringRes
 import com.gorosheg.bankcard.R

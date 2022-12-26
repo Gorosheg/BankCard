@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_white_rect_radius_10"
-    android:padding="28dp">
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/schemeNetworkHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/scheme_network"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,8 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:textColor="@color/orange"
         android:text="@string/type"
-        android:textColor="@color/light_grey"
+        android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/schemeNetworkHeader"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/prepaid"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/schemeNetwork" />
 
@@ -69,7 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/brand"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@+id/type"
         app:layout_constraintTop_toBottomOf="@+id/type" />
 
@@ -88,8 +92,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:textColor="@color/orange"
         android:text="@string/card_number"
-        android:textColor="@color/light_grey"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prepaid" />
 
@@ -98,7 +103,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/length"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@+id/cardNumberHeader"
         app:layout_constraintTop_toBottomOf="@+id/cardNumberHeader" />
 
@@ -117,7 +123,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/luhn"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/lengthHeader"
         app:layout_constraintTop_toBottomOf="@+id/cardNumberHeader" />
 
@@ -137,7 +144,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/country"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@+id/brand"
         app:layout_constraintTop_toBottomOf="@+id/brand" />
 
@@ -164,7 +172,7 @@
         android:id="@+id/countryCoordinates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/blue"
         app:layout_constraintStart_toStartOf="@+id/countryCode"
         app:layout_constraintTop_toBottomOf="@+id/countryCode"
         tools:text="(latitude: 56, longitude: 10)" />
@@ -175,7 +183,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/bank"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/orange"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/length" />
 
@@ -192,7 +201,8 @@
         android:id="@+id/bankUrl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/dark_gray"
+        android:autoLink="web"
+        android:linksClickable="true"
         app:layout_constraintStart_toStartOf="@+id/bankName"
         app:layout_constraintTop_toBottomOf="@+id/bankName"
         tools:text="www.jyskebank.dk" />
@@ -201,7 +211,7 @@
         android:id="@+id/bankPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/blue"
         app:layout_constraintStart_toStartOf="@+id/bankUrl"
         app:layout_constraintTop_toBottomOf="@+id/bankUrl"
         tools:text="+4589893300" />

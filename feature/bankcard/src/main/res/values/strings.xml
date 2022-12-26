@@ -6,8 +6,8 @@
     <string name="brand">BRAND</string>
     <string name="prepaid">PREPAID</string>
     <string name="card_number">CARD NUMBER</string>
-    <string name="length">LENGTH</string>
-    <string name="luhn">LUHN</string>
+    <string name="length">length</string>
+    <string name="luhn">luhn</string>
     <string name="country">COUNTRY</string>
     <string name="bank">BANK</string>
 
