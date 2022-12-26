@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/background_white_rect_radius_10"
     android:orientation="horizontal"
+    android:layout_marginVertical="4dp"
     android:paddingHorizontal="16dp"
     android:paddingVertical="8dp">
 
