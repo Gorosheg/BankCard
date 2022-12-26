@@ -1,37 +1,46 @@
 package com.gorosheg.bankcard.presentation
 
-import com.gorosheg.android.model.BankCard
-import com.gorosheg.bankcard.presentation.model.BankCardItem
+import com.gorosheg.bankcard.presentation.model.BankCardItem.CardUi
+import com.gorosheg.bankcard.presentation.model.BankCardItem.History
 import com.gorosheg.bankcard.presentation.model.ShortCard
+import com.gorosheg.pure.BankCard
 
-internal fun BankCard?.mapToUiCard(): BankCardItem.CardUi {
+internal fun BankCard?.mapToUiCard(): CardUi {
     return this?.mapToCard() ?: mapToEmptyCard()
 }
 
-internal fun List<BankCard>?.mapToUiHistory(): BankCardItem.History {
-    return this?.mapToListOfHistory() ?: BankCardItem.History(emptyList())
-}
-
-private fun BankCard.mapToCard(): BankCardItem.CardUi {
-    return BankCardItem.CardUi(
-        bankBin = cardBin,
-        scheme = scheme,
-        type = type,
-        brand = brand,
-        isPrepaid = isPrepaid.toString(),
-        numberLength = cardNumber.length.toString(),
-        numberLuhn = cardNumber.withLuhnAlgorithm.toString(),
-        countryCode = country.code,
-        countryName = country.name,
-        countryCoordinates = country.coordinates,
-        bankNameAndCity = bank.nameAndCity,
-        bankUrl = bank.url,
-        bankPhone = bank.phone,
+internal fun List<BankCard>.mapToUiHistory(): History {
+    return History(
+        this
+            .map(BankCard::mapToCard)
+            .map(CardUi::mapToShortCard)
     )
 }
 
-private fun mapToEmptyCard(): BankCardItem.CardUi {
-    return BankCardItem.CardUi(
+private fun BankCard.mapToCard(): CardUi = CardUi(
+    bankBin = cardBin,
+    scheme = scheme,
+    type = type,
+    brand = brand,
+    isPrepaid = isPrepaid.toString(),
+    numberLength = cardNumber.length.toString(),
+    numberLuhn = cardNumber.withLuhnAlgorithm.toString(),
+    countryCode = country.code,
+    countryName = country.name,
+    latitude = country.latitude,
+    longitude = country.longitude,
+    bankNameAndCity = bank.nameAndCity,
+    bankUrl = bank.url,
+    bankPhone = bank.phone,
+)
+
+private fun CardUi.mapToShortCard(): ShortCard = ShortCard(
+    scheme = scheme,
+    cardBin = bankBin
+)
+
+private fun mapToEmptyCard(): CardUi {
+    return CardUi(
         bankBin = "",
         scheme = "?",
         type = "?",
@@ -46,17 +55,5 @@ private fun mapToEmptyCard(): BankCardItem.CardUi {
         bankNameAndCity = "?",
         bankUrl = "?",
         bankPhone = "?",
-    )
-}
-
-private fun List<BankCard>.mapToListOfHistory(): BankCardItem.History {
-    return BankCardItem.History(
-        this
-            .map { bankCard ->
-                bankCard.mapToCard()
-            }
-            .map { cardUi ->
-                ShortCard(cardUi.scheme, cardUi.bankBin)
-            }
     )
 }
