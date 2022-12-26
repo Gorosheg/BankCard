@@ -17,7 +17,7 @@ internal class BankCardRepositoryImpl(
             getCardFromDao(cardBin)
         }
 
-        if (card != null && getCardFromDao(cardBin) == null) {
+        if (card != null) {
             addCardToDao(card, cardBin)
         }
 

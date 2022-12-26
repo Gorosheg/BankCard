@@ -40,7 +40,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
             buildHeader(Header.CARD),
             loadCard(cardBin),
             buildHeader(Header.HISTORY),
-            buildHistory()
+            getHistory()
         )
     }
 
@@ -48,7 +48,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
         return repository.getCard(cardBin).mapToUiCard()
     }
 
-    private fun buildHistory(): BankCardItem.History {
+    private fun getHistory(): BankCardItem.History {
         return repository.getAllRequestedCards().mapToUiHistory()
     }
 }
