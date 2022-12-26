@@ -1,6 +1,7 @@
 package com.gorosheg.bankcard.presentation
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -25,7 +26,7 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
     private val adapter by lazy {
         CommonAdapter(
             headerDelegate(),
-            historyDelegate(),
+            historyDelegate(viewModel::searchCard),
             cardDelegate(
                 onBankUrlClick = requireActivity()::onBankUrlClicked,
                 onBankPhoneClick = requireActivity()::onBankPhoneClicked,
@@ -39,24 +40,40 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
         bankCardMainRecycler.adapter = adapter
 
         searchIcon.setOnClickListener {
-            val cardBin = searchBin.text.toString()
+            searchCard()
+        }
 
-            if (cardBin.isEmpty()) {
-                enterBinHint.isVisible = true
-                enterBinHint.text = getString(R.string.enter_bin_hint)
-            } else {
-                viewModel.searchCard(cardBin)
+        searchBin.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN &&
+                keyCode == KeyEvent.KEYCODE_ENTER
+            ) {
+                searchCard()
+                return@setOnKeyListener true
             }
+            return@setOnKeyListener false
         }
     }
 
     private fun render(state: BankCardViewState) = with(binding) {
         adapter.items = state.items
         adapter.notifyDataSetChanged()
+
         if (state.isCardEmpty) {
-            enterBinHint.text = getString(R.string.enter_bin_hint_not_found)
+            enterBinHint.isVisible = true
+            enterBinHint.text = getString(R.string.enter_bin_hint)
         } else {
             enterBinHint.isVisible = false
+        }
+    }
+
+    private fun FragmentBankCardBinding.searchCard() {
+        val cardBin = searchBin.text.toString()
+
+        if (cardBin.isEmpty()) {
+            enterBinHint.isVisible = true
+            enterBinHint.text = getString(R.string.enter_bin_hint)
+        } else {
+            viewModel.searchCard(cardBin)
         }
     }
 

@@ -30,7 +30,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
         viewModelScope.launch {
             try {
                 val adapterItems = buildState(cardBin)
-                state.value = BankCardViewState(adapterItems)
+                state.value = state.value.copy(items = adapterItems)
             } catch (e: Exception) {
                 if (e is CancellationException) throw e
                 e.printStackTrace()
@@ -48,7 +48,14 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
     }
 
     private suspend fun loadCard(cardBin: String): CardUi {
-        return repository.getCard(cardBin).mapToUiCard()
+        val uiCard = repository.getCard(cardBin).mapToUiCard()
+        updateState(uiCard.bankBin == "")
+        return uiCard
+    }
+
+    private fun updateState(isCardBlank: Boolean) {
+        val newState = state.value.copy(isCardEmpty = isCardBlank)
+        state.value = newState
     }
 
     private fun getHistory(): BankCardItem.History {

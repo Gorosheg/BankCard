@@ -7,9 +7,9 @@ import com.gorosheg.bankcard.databinding.ListOfHistoryBinding
 import com.gorosheg.bankcard.presentation.model.BankCardItem.History
 import com.gorosheg.bankcard.presentation.model.ShortCard
 
-internal fun historyDelegate() =
+internal fun historyDelegate(onItemClick: (cardBin: String) -> Unit) =
     adapterDelegate<History, ListOfHistoryBinding>(ListOfHistoryBinding::inflate) {
-        val historyAdapter = historyBlockAdapter()
+        val historyAdapter = historyBlockAdapter(onItemClick)
         historyList.adapter = historyAdapter
 
         bind {
@@ -18,10 +18,14 @@ internal fun historyDelegate() =
         }
     }
 
-internal fun historyBlockAdapter() = adapter<ShortCard, HistoryBlockBinding>(HistoryBlockBinding::inflate) {
+internal fun historyBlockAdapter(onItemClick: (cardBin: String) -> Unit) =
+    adapter<ShortCard, HistoryBlockBinding>(HistoryBlockBinding::inflate) {
 
-    bind {
-        scheme.text = item.scheme
-        cardBin.text = item.cardBin
+        bind {
+            scheme.text = item.scheme
+            cardBin.text = item.cardBin
+        }
+        root.setOnClickListener {
+            onItemClick.invoke(item.cardBin)
+        }
     }
-}
