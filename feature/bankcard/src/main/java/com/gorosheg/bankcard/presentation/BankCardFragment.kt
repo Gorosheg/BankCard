@@ -44,13 +44,7 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
         }
 
         searchBin.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN &&
-                keyCode == KeyEvent.KEYCODE_ENTER
-            ) {
-                searchCard()
-                return@setOnKeyListener true
-            }
-            return@setOnKeyListener false
+            searchCard(event, keyCode)
         }
     }
 
@@ -66,7 +60,18 @@ class BankCardFragment : Fragment(R.layout.fragment_bank_card) {
         }
     }
 
-    private fun FragmentBankCardBinding.searchCard() {
+    private fun searchCard(event: KeyEvent, keyCode: Int): Boolean {
+        if (event.action == KeyEvent.ACTION_DOWN &&
+            keyCode == KeyEvent.KEYCODE_ENTER
+        ) {
+            searchCard()
+            return true
+        }
+
+        return false
+    }
+
+    private fun searchCard() = with(binding) {
         val cardBin = searchBin.text.toString()
 
         if (cardBin.isEmpty()) {

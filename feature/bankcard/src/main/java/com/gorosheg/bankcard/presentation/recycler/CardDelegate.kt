@@ -11,6 +11,10 @@ internal fun cardDelegate(
     onBankAddressClick: (latitude: String, longitude: String) -> Unit,
 ) = adapterDelegate<BankCardItem.CardUi, CardBlockBinding>(CardBlockBinding::inflate) {
 
+    bankUrl.setOnClickListener { onBankUrlClick.invoke(bankUrl.text.toString()) }
+    bankPhone.setOnClickListener { onBankPhoneClick.invoke(bankPhone.text.toString()) }
+    countryCoordinates.setOnClickListener { onBankAddressClick.invoke(item.latitude, item.longitude) }
+
     bind {
         schemeNetwork.text = item.scheme
         type.text = item.type
@@ -30,8 +34,4 @@ internal fun cardDelegate(
         bankPhone.paintFlags = bankPhone.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         countryCoordinates.paintFlags = bankPhone.paintFlags or Paint.UNDERLINE_TEXT_FLAG
     }
-
-    bankUrl.setOnClickListener { onBankUrlClick.invoke(bankUrl.text.toString()) }
-    bankPhone.setOnClickListener { onBankPhoneClick.invoke(bankPhone.text.toString()) }
-    countryCoordinates.setOnClickListener { onBankAddressClick.invoke(item.latitude, item.longitude) }
 }

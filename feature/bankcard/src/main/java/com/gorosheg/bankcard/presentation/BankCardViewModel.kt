@@ -49,7 +49,7 @@ internal class BankCardViewModel(private val repository: BankCardRepository) : V
 
     private suspend fun loadCard(cardBin: String): CardUi {
         val uiCard = repository.getCard(cardBin).mapToUiCard()
-        updateState(uiCard.bankBin == "")
+        updateState(isCardBlank = uiCard.bankBin.isEmpty())
         return uiCard
     }
 
